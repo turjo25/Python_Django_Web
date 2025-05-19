@@ -1,0 +1,19 @@
+class GrandFather:
+    def __init__(self,color,f_name):
+        self.color = color
+        self.f_name = f_name
+
+class Father(GrandFather):
+    def __init__(self, hobby):
+        self.hobby = hobby
+
+class Children(Father,GrandFather):
+    def __init__(self, color, f_name, hobby, fashion):
+        GrandFather.__init__(self, color, f_name)
+        Father.__init__(self,hobby)
+        self.fashion = fashion
+    def info(self):
+        print(f"{self.color},{self.f_name},{self.fashion},{self.hobby}")
+
+c1 = Children(color="white",f_name="rahman",fashion="styleish",hobby="singing")
+c1.info()
