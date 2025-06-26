@@ -1,6 +1,7 @@
 from Read_Write_Contacts import read_contacts
 from Read_Write_Contacts import write_contacts
 
+
 def get_valid_phone():
     while 1:
         phone = input("Enter Phone Number: ").strip()

@@ -30,6 +30,8 @@ while 1:
         search_contact()
     elif option == "4":
         remove_contact()
+    else:
+        print("Invalid command! Try again")
 
 # After exit 
 print("Thank you for using the Contact Book CLI System. Goodbye!")
