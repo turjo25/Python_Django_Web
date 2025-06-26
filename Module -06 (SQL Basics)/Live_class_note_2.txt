@@ -1,0 +1,36 @@
+i. Common data Types in SQL:
+    1.INT
+    2.VARCHAR(n)
+    3.TEXT (text is recomanded for string)
+    4.FLOAT
+    5.DATE 
+    6.BOOLEAN
+
+ii. Sorting and limiting data:
+    1.Order by
+    2.AES/DESC
+    3.LIMIT
+
+iii. Pattern Matching with LIKE
+    1.A% - Jader nam A diye shuru hbe
+    2.%z - Jader nam z diye sesh hbe
+    3.%rj% - rj middle e ache emon ber kore     dibe
+    '_' - specific character-->
+    joto gula underscore thakbe totogula char e thakbe.
+
+iv. Aggregating Data in SQL:
+    1.Count
+    2.AVG
+    3.SUM
+    4.MIN 
+    5.MAX
+    i.Group by
+    ii.Having
+
+v. Joining Table in SQL:
+    1.INNER JOIN 
+    2.LEFT JOIN
+    3.RIGHT JOIN
+    4.FULL JOIN 
+
+(Beecrowd e SQL problem solve kora jabe)

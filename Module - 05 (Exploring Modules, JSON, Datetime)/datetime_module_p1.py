@@ -25,3 +25,5 @@ print(formatted_date)
 date = "25-09-2030 12:00:00"
 perse_date = datetime.datetime.strptime(date,"%d-%m-%Y %H:%M:%S")
 print(perse_date)
+
+#More about datetime: https://docs.python.org/3/library/datetime.html

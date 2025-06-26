@@ -1,4 +1,4 @@
-import Demo
+import Demo as Demo
 print(Demo.add(4,5))
 
 #Or we can import like this and use this:

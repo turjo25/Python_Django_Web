@@ -1,0 +1,43 @@
+1. SQL Operations:
+SQL Operations --> CRUD (Create, Read, Update, Delete)
+All SQL Study related website : https://www.w3schools.com/sql/default.asp
+
+2. Installing PosgreSQL:
+Download Link: https://www.postgresql.org/download/windows/
+Setup Video: https://www.youtube.com/watch?v=4qH-7w5LZsA
+Password: turjo1234
+Open "Shell SQL"
+
+Some Command:
+switch to another database: \c database_name
+
+
+Operations in Terminal:
+i. Creating a database: CREATE DATABASE databasename;
+
+ii. Deleting a database: DROP DATABASE databasename;
+
+iii. Table creation: 
+    CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....
+);
+
+iv. Inserting values:
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+
+v. To add a column to an existing table:
+ALTER TABLE table_name
+ADD column_name datatype;
+
+vi.Used to modify the value(s) in existing records in a table:
+UPDATE cars
+SET color = 'red'
+WHERE brand = 'Volvo';
+
+vii. delete existing records in a table:
+DELETE FROM Information
+WHERE result = 'A+';
