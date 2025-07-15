@@ -1,0 +1,126 @@
+h3 {
+    color: springgreen;
+}
+
+
+.one {
+    color: blue;
+}
+
+.two {
+    color: #ff0000;
+}
+
+.batch5 {
+    color: purple;
+    font-size: 50px;
+}
+
+.unique {
+    color: palegreen;
+}
+
+.name {
+    color: gold;
+}
+
+#wow {
+    color: #ff0000;
+    font-size: 50px;
+    text-align: left;
+    background-image: url(https://imgs.search.brave.com/1hJL_9v10RIIkFtSRTdM_5CpGtFBkXpJme6qv1Jc4co/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTQ3/MjMzNTQ3Ni9waG90/by9kaWdpdGFsbHkt/Z2VuZXJhdGVkLWlt/YWdlLW9mLWlzb21l/dHJpYy1kYXRhLWNo/YXJ0LmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz1RTmtnZlZn/WUNYUTdsbzg0TWdt/Y0NtTVAwb1Fsdl9t/V252aWFPc1ktNEQw/PQ);
+}
+
+
+
+
+/* Selector Specificity */
+.habijabi {
+    color: red !important;
+}
+
+.habijabi {
+    color: green;
+}
+
+.habijabi {
+    color: blue;
+}
+
+.habijabi {
+    color: yellow;
+}
+
+h1 {
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid red;
+}
+
+/* p {
+    visibility: hidden;
+} */
+/* span {
+    display: inline-block;
+    background-color: red;
+    width: 50px;
+} */
+
+
+
+
+.single {
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    background-color: rgba(255, 0, 0, .8);
+
+    position: absolute;
+    /* will search for parent (relative) */
+
+    top: 20px;
+    left: 30px;
+
+    /* top: 50px; */
+    /* left: 50px; */
+    /* bottom: 50px;
+    right: 20px; */
+}
+
+.parent {
+    height: 200px;
+    width: 300px;
+    background-color: rgba(0, 255, 0, .8);
+
+    position: relative;
+}
+
+/* Relative - Related to items original position */
+
+
+/* img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+} */
+
+/* .a {
+    text-align: center;
+    display: block;
+    background-color: red;
+} */
+
+.a {
+    height: 100px;
+    width: 100px;
+    background-color: rgba(255, 0, 0, 0.3);
+    /* position: fixed; */
+}
+
+.b {
+    height: 150px;
+    width: 150px;
+    background-color: rgba(0, 255, 0, 0.3);
+    position: fixed;
+    top: 0px;
+}
