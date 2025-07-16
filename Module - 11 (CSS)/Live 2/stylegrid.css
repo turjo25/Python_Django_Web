@@ -1,0 +1,29 @@
+.container {
+    width: 800px;
+    height: 650px;
+    margin: 0 auto;
+    border: 10px solid black;
+}
+
+.item {
+    width: 150px;
+    height: 150px;
+    background-color:#fb7185;
+    padding: 1em;
+    font-weight: 700;
+    color: Oblack;
+    text-align: center;
+    border: 10px solid blue;
+    border-radius: 10px;
+}
+
+.container{
+    display: grid;
+    grid-template-rows: 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px;
+    grid-auto-rows: 200px;
+    grid-auto-columns: 200px;
+    grid-auto-flow: column;
+    grid-row: 2 / 4;
+    grid-column: 1 / 5;
+}

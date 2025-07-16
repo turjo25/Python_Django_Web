@@ -1,0 +1,30 @@
+.container {
+    width: 800px;
+    height: 650px;
+    margin: 0 auto;
+    border: 10px solid black;
+}
+
+.item {
+    width: 150px;
+    height: 150px;
+    background-color:#fb7185;
+    padding: 1em;
+    font-weight: 700;
+    color: Oblack;
+    text-align: center;
+    border: 10px solid blue;
+    border-radius: 10px;
+}
+
+/* using flex properties */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap: wrap; */
+}
+.container #item3{
+    /* flex-grow: 2; */
+    flex-shrink: 2;
+}
