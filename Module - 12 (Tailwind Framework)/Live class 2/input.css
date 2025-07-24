@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme{
+    --color-primary: #abc25a;
+}
+
+@layer components{
+    .btn{
+        @apply px-4 py-2 bg-red-400 rounded-2xl;
+    }
+}
+
