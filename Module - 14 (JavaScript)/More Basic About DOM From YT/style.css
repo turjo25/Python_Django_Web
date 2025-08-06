@@ -1,0 +1,38 @@
+/* .heading{
+    color: blue;
+    background-color:black;
+}
+body{
+    background-color: beige;
+}
+button{
+    background-color: aquamarine;
+    color: black;
+}
+#box{
+    height: 200px;
+    width: 100px;
+    text-align: center;
+    background-color: aqua;
+    margin: 5px;
+    border: 2px solid black;
+}
+.content{
+    color:red;
+}
+.newContent{
+    background-color: green;
+} */
+
+/* div{
+    background-color: aqua;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+} */
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  background-color: bisque;
+}
