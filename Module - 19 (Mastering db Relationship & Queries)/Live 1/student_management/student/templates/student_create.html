@@ -1,0 +1,13 @@
+<!-- live2: template inheritance -->
+{% extends 'base.html' %}
+
+{% block title %}Create Student{% endblock %}
+
+{% block content %}
+<form class="container" method="post">
+        {% csrf_token %}
+        <h2>{% if isUpdated %} Update {% else %} Create {% endif %} Student</h2>
+        {{form}}
+        <input class="btn btn-primary" type="submit">
+    </form>
+{% endblock %}

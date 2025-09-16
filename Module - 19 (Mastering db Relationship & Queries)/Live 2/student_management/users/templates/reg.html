@@ -1,0 +1,14 @@
+<!-- live2: template inheritance -->
+{% extends 'base.html' %}
+{%load crispy_forms_tags %} 
+
+{% block title %}Registration Form{% endblock %}
+
+{% block content %}
+<form class="container" method="post">
+        {% csrf_token %}
+        <h2>Registration Form</h2>
+        {{ form|crispy }}
+        <input class="btn btn-primary" type="submit">
+    </form>
+{% endblock %}

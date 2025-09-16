@@ -1,0 +1,22 @@
+<!-- live2: template inheritance -->
+{% extends 'base.html' %}
+
+{% block title %} Student List {% endblock %}
+
+{% block content %}
+ <h1>Student Information</h1>
+    <a href="{% url 'create_students' %}" class="btn btn-primary">Create Students</a>
+    <div class="d-flex flex-wrap justify-content-center">
+        {% for student in students %}
+            <div class="card m-2" style="width: 18rem;">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                        <h5 class="card-title">{{student.name}}</h5>
+                        <p class="card-text">Email: {{student.email}} <br> Age: {{student.age}}</p>
+                        <a href="{% url 'update_student' id=student.id %}" class="btn btn-warning">Edit</a>
+                        <a href="{% url 'delete_student' id=student.id %}" class="btn btn-danger">Delete</a>
+                    </div>
+             </div>
+        {%endfor%}
+    </div>
+{% endblock %}

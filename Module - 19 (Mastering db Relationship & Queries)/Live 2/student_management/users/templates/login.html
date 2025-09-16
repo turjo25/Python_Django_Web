@@ -1,0 +1,24 @@
+<!-- live2: template inheritance -->
+{% extends 'base.html' %}
+{%load crispy_forms_tags %} 
+
+{% block title %}Login Form{% endblock %}
+
+{% block content %}
+<form class="container" method="post">
+        {% csrf_token %}
+        <h2>Login Form</h2>
+        {{ form|crispy }}
+        <input class="btn btn-primary" type="submit">
+    </form>
+
+    <div class="container my-2">
+        {% if user.is_authenticated%}
+            <p>Welcome {{user.username}}!</p>
+            <a class="btn btn-danger" href="{% url 'logout'%}">Logout</a>
+        {% else %}
+            <a class="btn btn-primary" href="{% url 'registration'%}">Register</a>
+            <!-- <a class="btn btn-primary" href="{% url 'login'%}">Login</a> -->
+        {% endif %}
+    </div>
+{% endblock %}

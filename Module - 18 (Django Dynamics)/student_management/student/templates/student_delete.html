@@ -1,0 +1,13 @@
+<!-- live2: template inheritance -->
+{% extends 'base.html' %}
+
+{% block title %}Delete Student{% endblock %}
+
+{% block content %}
+<form class="container" method="post">
+        {% csrf_token %}
+        <p>Are you sure want to delete {{object.name}}?</p>
+        <button type="submit">Yes, Delete</button>
+        <a class="btn btn-warning" href="{% url 'list_students'%}">Cancel</a>
+    </form>
+{% endblock %}

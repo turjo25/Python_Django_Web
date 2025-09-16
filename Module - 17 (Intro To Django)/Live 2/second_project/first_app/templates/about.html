@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>About section</h1>
+    <a href="/first_app/home">Go to Homepage</a>
+    <h3>{{blogs}}</h3>
+    <h2>In more structured way</h2>
+    {% for b in blogs %}
+    <h3>{{b.name}}</h3>
+    <h3>{{b.context}}</h3>
+    {% endfor %}
+
+</body>
+</html>
