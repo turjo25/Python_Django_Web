@@ -4,6 +4,7 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('',views.task_list,name='task_list'),
     path('task/create/',views.task_create,name='task_create'),
+    path('task/pass_change/',views.pass_change,name='pass_change'),
     path('task/<int:task_id>/',views.task_detail,name='task_detail'),
     path('task/delete/<int:task_id>/',views.task_delete,name='task_delete'),
     path('task/<int:task_id>/mark_completed',views.task_mark_completed,name='task_mark_completed'),

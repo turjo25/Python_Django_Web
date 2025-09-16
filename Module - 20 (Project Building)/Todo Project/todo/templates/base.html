@@ -18,13 +18,19 @@
   <style>
     body {
       font-family: 'Ubuntu', sans-serif;
-      background-color: #f8f9fa;
+      /* background-color: #f8f9fa; */
+      background: linear-gradient(90deg, #00d9ff, #aed9e5);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    /* Stylish Navbar */
+    main.container {
+      flex-grow: 1;
+      margin-bottom: 40px; /* space between tasks and footer */
+    }
+
+    /* Navbar */
     .stylish-navbar {
       background: linear-gradient(90deg, #0072ff, #00c6ff);
       backdrop-filter: blur(10px);
@@ -68,22 +74,28 @@
 
     /* Footer */
     footer {
-      background: linear-gradient(90deg, #343a40, #212529);
+      background: linear-gradient(135deg, #1e1e2f, #343a40);
+      color: #e0e0e0;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      padding: 2rem 1rem;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
     }
 
     footer a {
       color: #adb5bd;
       text-decoration: none;
-      transition: color 0.3s;
+      transition: color 0.3s, transform 0.3s;
     }
 
     footer a:hover {
-      color: #ffffff;
+      color: #0d6efd;
+      transform: translateY(-2px);
     }
 
     .footer-social i {
-      font-size: 1.2rem;
-      margin: 0 10px;
+      font-size: 1.4rem;
+      margin: 0 12px;
       transition: 0.3s;
     }
 
@@ -99,18 +111,11 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark stylish-navbar">
     <div class="container">
-      <a class="navbar-brand" href="#">✅ To-Do</a>
+      <a class="navbar-brand" href="{% url 'task_list' %}">✅ To-Do</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'task_list' %}">Home</a>
-          </li>
-        </ul>
 
         <!-- Buttons -->
         <div class="d-flex">
@@ -130,13 +135,13 @@
   </nav>
 
   <!-- Main Content -->
-  <main class="container mt-4 flex-grow-1">
+  <main class="container mt-4">
     {% block content %}
     {% endblock %}
   </main>
 
   <!-- Footer -->
-  <footer class="text-white text-center text-lg-start mt-auto py-4">
+  <footer class="text-center text-lg-start">
     <div class="container">
       <div class="row align-items-center">
         <!-- Left side -->
@@ -145,8 +150,8 @@
         </div>
         <!-- Right side -->
         <div class="col-md-6 text-md-end footer-social">
-          <a href="#"><i class="bi bi-github"></i></a>
-          <a href="#"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/turjo25"><i class="bi bi-github"></i></a>
+          <a href="https://www.linkedin.com/in/srturjo25"><i class="bi bi-linkedin"></i></a>
         </div>
       </div>
     </div>

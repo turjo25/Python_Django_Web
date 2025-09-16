@@ -1,9 +1,12 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Task
 from .forms import TaskForm
+from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login,authenticate,logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import SetPasswordForm
+from django.contrib.auth import update_session_auth_hash
 
 # Create your views here.
 #Task list
@@ -80,3 +83,16 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request,'register.html',{'form':form})
+
+#pass change
+def pass_change(request):
+    if request.method == 'POST':
+        form = SetPasswordForm(user=request.user,data = request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request,form.user)
+            messages.success(request,'Password Changed!')
+            return redirect('task_list')
+    else:
+        form = SetPasswordForm(user=request.user)
+    return render(request,'pass_change.html',{'form':form})
