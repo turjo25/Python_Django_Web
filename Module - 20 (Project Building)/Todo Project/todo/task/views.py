@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Task
 from .forms import TaskForm
+from .forms import UserRegForm,UserUpdateForm
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login,authenticate,logout
@@ -71,20 +72,54 @@ def task_mark_completed(request, task_id):
     return redirect('task_list')
 
 #user register
+# def register(request):
+#     if request.method == 'POST':
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             username = form.cleaned_data.get('username')
+#             password = form.cleaned_data.get('password')
+#             user = authenticate(username=username,password=password)
+#             login(user)
+#             return redirect('task_list')
+#     else:
+#         form = UserCreationForm()
+#     return render(request,'register.html',{'form':form})
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        # form = UserCreationForm(request.POST)
+        form = UserRegForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username,password=password)
-            login(user)
+            # Save user to the database
+            user = form.save()
+            
+            # Log the user in immediately
+            login(request, user)
+            
             return redirect('task_list')
     else:
-        form = UserCreationForm()
-    return render(request,'register.html',{'form':form})
+        # form = UserCreationForm()
+        form = UserRegForm()
+    return render(request, 'register.html', {'form': form})
+
+#user profile
+@login_required
+def profile(request):
+    return render(request, "profile.html", {"user": request.user})
+
+# update user 
+@login_required
+def update_profile(request):
+    if request.method == "POST":
+        form = UserUpdateForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect("task_list")  # go back to task list after update
+    else:
+        form = UserUpdateForm(instance=request.user)
+    return render(request, "update_profile.html", {"form": form})
 
 #pass change
+@login_required
 def pass_change(request):
     if request.method == 'POST':
         form = SetPasswordForm(user=request.user,data = request.POST)

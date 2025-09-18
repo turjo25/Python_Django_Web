@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h2 class="fw-bold text-primary mb-4">👤 User Profile</h2>
+  
+  <div class="p-4 border rounded shadow-sm bg-light">
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    {% if user.first_name or user.last_name %}
+      <p><strong>Full Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+    {% endif %}
+    <p><strong>Date Joined:</strong> {{ user.date_joined|date:"F j, Y" }}</p>
+    <p><strong>Last Login:</strong> {{ user.last_login|date:"F j, Y, g:i a" }}</p>
+  </div>
+
+  <div class="mt-4 d-flex gap-3">
+    <a href="{% url 'update_profile' %}" class="btn btn-warning">✏️ Edit Profile</a>
+    <a href="{% url 'pass_change' %}" class="btn btn-danger">Change Passowrd</a>
+    <a href="{% url 'task_list' %}" class="btn btn-secondary">⬅ Back to Tasks</a>
+  </div>
+</div>
+{% endblock %}

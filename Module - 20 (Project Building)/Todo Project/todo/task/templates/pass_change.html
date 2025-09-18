@@ -8,5 +8,6 @@
         <h2>Change Password</h2>
         {{ form|crispy }}
         <input class="btn btn-primary" type="submit">
+        <a href=" {% url 'task_list' %}" class="btn btn-secondary">⬅ Back to Tasks</a>
     </form>
 {% endblock %}
