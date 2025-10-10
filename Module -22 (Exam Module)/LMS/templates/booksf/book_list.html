@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}Book List{% endblock %}
+
+{% block content %}
+<div class="px-4 py-10 bg-gradient-to-b bg-gradient-to-b from-indigo-900 via-indigo-800 to-indigo-700 min-h-screen">
+  <div class="max-w-5xl mx-auto space-y-6">
+
+    <h1 class="text-4xl font-bold text-white mb-4 text-center">📚 Book List</h1>
+
+
+    {% comment %} <!-- Add Book Button for Superusers -->
+    {% if user.is_superuser %}
+      <div class="text-right mb-4">
+        <a href="{% url 'add_book' %}"
+          class="px-4 py-2 bg-green-500 hover:bg-green-400 text-white font-semibold rounded-xl shadow-md hover:shadow-green-400/50 transition-all duration-300">
+          + Add Book
+        </a>
+      </div>
+    {% endif %} {% endcomment %}
+
+    <!-- Book Cards -->
+    <div class="space-y-5">
+      {% for book in page_obj %}
+        <div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-6 space-y-4 text-gray-200">
+          <h4 class="text-2xl font-bold text-white">
+            <a href="{% url 'book_details' book.id %}" class="hover:text-purple-200 transition-colors duration-300">{{ book.title }}</a>
+          </h4>
+          <p>{{ book.description|truncatechars:100 }}</p>
+          <p><strong>Category:</strong> {{ book.category.name }}</p>
+          <p>
+            <strong>Tags:</strong>
+            {% for t in book.tag.all %}
+              <span class="inline-block bg-purple-600/50 px-3 py-1 rounded-full text-sm mr-1">{{ t.name }}</span>
+            {% empty %}
+              No tags
+            {% endfor %}
+          </p>
+          <p class="mt-6">
+  <a href="{% url 'book_details' book.id %}"
+   class="px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white font-semibold rounded-xl shadow-md hover:shadow-blue-400/50 transition-all duration-300">
+   View Details
+</a>
+
+</p>
+
+        </div>
+        
+      {% empty %}
+        <p class="text-white text-center">No books found.</p>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex justify-center mt-6">
+      <nav class="inline-flex -space-x-px">
+        {% if page_obj.has_previous %}
+          <a href="?page={{ page_obj.previous_page_number }}"
+            class="px-3 py-2 rounded-l-lg bg-white/10 text-white hover:bg-purple-500 transition-colors duration-300">Previous</a>
+        {% endif %}
+        <span class="px-3 py-2 bg-white/20 text-white">{{ page_obj.number }}</span>
+        {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}"
+            class="px-3 py-2 rounded-r-lg bg-white/10 text-white hover:bg-purple-500 transition-colors duration-300">Next</a>
+        {% endif %}
+      </nav>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

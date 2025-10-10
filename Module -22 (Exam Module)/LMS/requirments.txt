@@ -1,0 +1,32 @@
+Book Management (Admin Only)
+
+➔ Admin can add new books
+
+➔ Book information includes:
+
+◆ Title
+
+◆ Author
+
+◆ Category
+
+◆ Cover Image (optional but recommended)
+
+◆ Description
+
+Book Browsing (All Users)
+
+➔ Browse and view a list of all books
+
+➔ Each book has a Details Page showing:
+
+◆ Title
+
+◆ Author
+
+◆ Category
+
+◆ Cover image
+
+◆ Description
+

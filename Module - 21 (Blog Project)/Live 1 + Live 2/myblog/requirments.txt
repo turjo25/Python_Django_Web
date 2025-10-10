@@ -1,0 +1,27 @@
+1. Category 
+2. Tag
+3. user
+4. Post
+5. comment
+
+Post and Category == One to Many
+Category Logic
+Python --> 5 ta blog
+1 blog just ekta Category tei thakte parbe
+
+Post and Tag == Many to Many
+
+Backend --> 5 ta blog 
+1 ta blog chaile multiple tag er under e thakte parbe
+
+User , Post ---> One to Many 
+1 user --> multiple post likhte parbe 
+
+User, comment --> One to Many 
+Comment, Post --> One to Many 
+1 user --> multiple comment (blog)
+
+blog,user --> manay to manay
+user,blog --> manay to manay
+1 ta user --> multiple blog e like dite parbe
+1 ta blog --> multiple like thakte pare

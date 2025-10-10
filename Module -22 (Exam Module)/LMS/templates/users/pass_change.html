@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Change Password{% endblock %}
+
+{% block content %}
+<div class="flex justify-center px-4 py-10 bg-gradient-to-b from-indigo-900 via-indigo-800 to-indigo-700" min-h-screen">
+  <div class="w-full max-w-md bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-8 space-y-6">
+
+    <h2 class="text-3xl font-bold text-white text-center mb-4">Change Password</h2>
+
+    <form method="post" class="space-y-4">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="flex flex-col">
+          <label for="{{ field.id_for_label }}" class="text-gray-200 font-medium mb-1">{{ field.label }}</label>
+          {{ field|as_crispy_field }}
+          {% if field.errors %}
+            <p class="text-red-400 text-sm mt-1">{{ field.errors|striptags }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+
+      <div class="flex flex-col sm:flex-row gap-4 mt-4">
+        <button type="submit"
+          class="w-full sm:w-auto px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white font-semibold rounded-xl shadow-md hover:shadow-blue-400/50 transition-all duration-300">
+          Change Password
+        </button>
+        <a href="{% url 'profile' %}"
+          class="w-full sm:w-auto px-4 py-2 bg-gray-500 hover:bg-gray-400 text-white font-semibold rounded-xl shadow-md hover:shadow-gray-400/50 transition-all duration-300 text-center">
+          👤 Back to Profile
+        </a>
+      </div>
+    </form>
+
+  </div>
+</div>
+{% endblock %}
