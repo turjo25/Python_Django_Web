@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+media/
+staticfiles/
+
+# Environments
+.env
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# PyInstaller
+*.spec
+dist/
+build/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Migrations (optional – if auto-generated)
+# Uncomment if you don't want migrations in version control
+# */migrations/
+# !*/migrations/__init__.py
+
+# Media uploads (if user uploads files)
+media/
+
+# Static files (collected by collectstatic)
+static/
