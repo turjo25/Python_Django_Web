@@ -9,9 +9,11 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import environ
 from pathlib import Path
 
+env = environ.Env()
+environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,13 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8(2vhyw+p&c_hfaf!2nz_3#68z2@7j0l=p$e*%kb7dk+*sikk&'
+SECRET_KEY = 'django-insecure-*0*zy86-gij)=(!9v)gj$!9uu&f3w37$q6e4%2v++j++f8&+q6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -37,27 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'eshop',
-    # 'allauth',
-    # 'allauth.account',
-
-    # # Optional -- requires install using `django-allauth[socialaccount]`.
-    # 'allauth.socialaccount',
-    # 'allauth.socialaccount.providers.google',
+    'shop',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    
 ]
-
-STATIFILES_DIRS = ['static']
-MEDIA_URL = '/media/'
-MEDIA_ROOT = 'media'
-
-#login url
-LOGIN_URL = ''
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
-
-# SOCIALACCOUNT_LOGIN_ON_GET = True #social media account use kore login system banacchi kina
-# ACCOUNT_SESSION_REMEMBER = True #google diye login dile jotokhn logout na krtese eita local storage e thakte hobe
-# ACCOUNT_LOGIN_ON_EMAIL_COMFIRMATION = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -67,8 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-     # Add the account middleware:
-    #"allauth.account.middleware.AccountMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'eshop.urls'
@@ -76,15 +62,16 @@ ROOT_URLCONF = 'eshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                 # `allauth` needs this from django
+                # `allauth` needs this from django
                 'django.template.context_processors.request',
+                'shop.context_processors.cart_items_count',
             ],
         },
     },
@@ -102,7 +89,12 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+SITE_ID = 1  # new
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -138,9 +130,36 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = ['static']
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'
+
+# Login URL
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+SOCIALACCOUNT_LOGIN_ON_GET = True
+ACCOUNT_SESSION_REMEMBER = True 
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# SSL Commerz setup
+SSLCOMMERZ_STORE_ID = env('SSLCOMMERZ_STORE_ID')
+SSLCOMMERZ_STORE_PASSWORD = env('SSLCOMMERZ_STORE_PASSWORD')
+SSLCOMMERZ_PAYMENT_URL = env('SSLCOMMERZ_PAYMENT_URL')
+SSLCOMMERZ_VALIDATION_URL = env('SSLCOMMERZ_VALIDATION_URL')
+
+# email setup
+EMAIL_BACKEND = env('EMAIL_BACKEND')
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_HOST_USER = 'mdshardulrahmanturjoofficial@gmail.com'
+EMAIL_HOST_PASSWORD = 'yolioocopabxwrmz'
+EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_USE_TLS = env('EMAIL_USE_TLS')
