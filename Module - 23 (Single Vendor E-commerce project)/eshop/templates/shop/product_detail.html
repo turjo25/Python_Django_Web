@@ -14,7 +14,7 @@
         <div class="md:w-1/2 p-8 md:p-12">
             <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ product.name }}</h1>
             <div class="flex items-center mb-6">
-                <span class="text-3xl font-bold text-indigo-600 mr-4">${{ product.price }}</span>
+                <span class="text-3xl font-bold text-indigo-600 mr-4">৳{{ product.price }}</span>
                 {% if product.stock > 0 %}
                 <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full font-medium">In Stock: {{ product.stock }}</span>
                 {% else %}
@@ -52,7 +52,7 @@
             <img src="{{ related.image.url }}" class="h-32 w-full object-cover rounded-md mb-3">
             {% endif %}
             <h6 class="font-bold text-gray-800 truncate">{{ related.name }}</h6>
-            <p class="text-indigo-600 font-semibold">${{ related.price }}</p>
+            <p class="text-indigo-600 font-semibold">৳{{ related.price }}</p>
         </a>
         {% endfor %}
     </div>

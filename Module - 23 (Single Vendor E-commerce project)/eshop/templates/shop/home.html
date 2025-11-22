@@ -42,7 +42,7 @@
                 <h3 class="text-lg font-bold text-gray-900 mb-1">{{ product.name }}</h3>
                 <p class="text-gray-500 text-sm mb-4 line-clamp-2">{{ product.description }}</p>
                 <div class="mt-auto flex items-center justify-between">
-                    <span class="text-xl font-bold text-indigo-600">${{ product.price }}</span>
+                    <span class="text-xl font-bold text-indigo-600">৳{{ product.price }}</span>
                     <a href="{% url 'product_detail' product.slug %}" class="text-indigo-600 hover:text-indigo-800 font-medium text-sm">View Details &rarr;</a>
                 </div>
             </div>

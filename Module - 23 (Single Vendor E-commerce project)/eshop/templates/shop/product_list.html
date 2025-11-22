@@ -62,7 +62,7 @@
                 <div class="p-5 flex flex-col flex-grow">
                     <h5 class="text-lg font-bold text-gray-900">{{ product.name }}</h5>
                     <div class="flex items-center mt-1 mb-3">
-                        <span class="text-lg font-bold text-indigo-600">${{ product.price }}</span>
+                        <span class="text-lg font-bold text-indigo-600">৳{{ product.price }}</span>
                         {% if product.avg_rating %}
                         <div class="ml-auto flex items-center text-yellow-400 text-sm">
                             <i class="fas fa-star"></i> <span class="text-gray-500 ml-1">{{ product.avg_rating|floatformat:1 }}</span>

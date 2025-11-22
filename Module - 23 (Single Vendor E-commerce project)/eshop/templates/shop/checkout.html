@@ -14,13 +14,13 @@
                         <span class="font-medium text-gray-700">{{ item.product.name }}</span>
                         <span class="text-gray-500 ml-1">x {{ item.quantity }}</span>
                     </div>
-                    <span class="text-gray-900 font-semibold">${{ item.get_total_price }}</span>
+                    <span class="text-gray-900 font-semibold">৳{{ item.get_total_price }}</span>
                 </li>
                 {% endfor %}
             </ul>
             <div class="border-t pt-4 flex justify-between items-center">
                 <span class="font-bold text-lg">Total</span>
-                <span class="font-bold text-xl text-indigo-600">${{ cart.get_total_cart_price }}</span>
+                <span class="font-bold text-xl text-indigo-600">৳{{ cart.get_total_price }}</span>
             </div>
         </div>
 
