@@ -1,6 +1,7 @@
 import { use, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 function Users() {
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   async function fetchUsers() {
@@ -28,7 +29,7 @@ function Users() {
       {loading && <p>Loading...</p>}
       {users.map((user) => (
         <div key={user.id}>
-          {user.name} - {user.email}
+          {user.name} - {user.email} <button onClick={()=> navigate(`/users/${user.id}`)}>View Details</button>
         </div>
       ))}
     </div>

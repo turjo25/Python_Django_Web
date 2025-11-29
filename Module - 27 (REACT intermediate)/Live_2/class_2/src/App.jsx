@@ -4,6 +4,7 @@ import Home from './components/home/Home.jsx'
 import About from './components/about/About.jsx'
 import { Link } from 'react-router-dom'
 import Users from './users/Users.jsx'
+import SingleUser from './users/SingleUser.jsx'
 
 function App() {
 
