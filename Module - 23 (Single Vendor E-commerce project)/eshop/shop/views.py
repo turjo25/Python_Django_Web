@@ -7,6 +7,7 @@ from django.db.models import Q, Min, Max, Avg
 from django.contrib.auth.decorators import login_required
 from .sslcommerz import generate_sslcommerz_payment, send_order_confirmation_email
 from django.views.decorators.csrf import csrf_exempt
+from django.db.models import Sum
 # Create your views here.
 
 # Manual User Authentication
@@ -369,8 +370,10 @@ def payment_cancel(request, order_id):
 def profile(request):
     tab = request.GET.get('tab')
     orders = Order.objects.filter(user = request.user)
-    completed_orders = orders.filter(status = 'delivered')
+    # completed_orders = orders.filter(status = 'delivered')
+    completed_orders = orders.filter(status='completed').count()
     total_spent = sum(order.get_total_cost() for order in orders)
+    # total_spent = completed_orders.aggregate(total=Sum('order_items__product__price'))['total'] or 0
     order_history_active = (tab == 'orders') # true or false return korbe
     
     return render(request, 'shop/profile.html', {

@@ -89,7 +89,7 @@ class Order(models.Model):
     transaction_id = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=10, choices=STATUS)
+    status = models.CharField(max_length=10, choices=STATUS, default='pending')
     
     def __str__(self):
         return f"Order #{self.id}" # Order #2
@@ -105,5 +105,5 @@ class OrderItem(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     
     def get_cost(self):
-        return self.quantity*self.product.price  # 20
+        return self.quantity*self.price  # 20
         

@@ -1,0 +1,78 @@
+[
+    {
+        "model": "blogapp.menulist",
+        "pk": 1,
+        "fields": {
+            "module_name": "Blog",
+            "menu_name": "Blog Menu",
+            "menu_url": "/blog",
+            "menu_icon": "fa fa-blog",
+            "parent_id": 0,
+            "is_main_menu": true,
+            "is_sub_menu": false,
+            "is_sub_child_menu": false,
+            "created_at": "2023-02-19T15:01:14Z",
+            "updated_at": "2023-02-19T15:01:14Z",
+            "deleted_at": "2023-02-19T15:01:04Z",
+            "is_active": true,
+            "deleted": false
+        }
+    },
+    {
+        "model": "blogapp.menulist",
+        "pk": 2,
+        "fields": {
+            "module_name": "Blog",
+            "menu_name": "Blog Create",
+            "menu_url": "/blog-add",
+            "menu_icon": "fa fa-blog",
+            "parent_id": 1,
+            "is_main_menu": false,
+            "is_sub_menu": true,
+            "is_sub_child_menu": false,
+            "created_at": "2023-02-19T15:01:14Z",
+            "updated_at": "2023-02-19T15:01:14Z",
+            "deleted_at": "2023-02-19T15:01:04Z",
+            "is_active": true,
+            "deleted": false
+        }
+    },
+    {
+        "model": "blogapp.menulist",
+        "pk": 3,
+        "fields": {
+            "module_name": "Blog",
+            "menu_name": "Category List",
+            "menu_url": "/category",
+            "menu_icon": "fa fa-blog",
+            "parent_id": 1,
+            "is_main_menu": false,
+            "is_sub_menu": true,
+            "is_sub_child_menu": false,
+            "created_at": "2023-02-19T15:01:14Z",
+            "updated_at": "2023-02-19T15:01:14Z",
+            "deleted_at": "2023-02-19T15:01:04Z",
+            "is_active": true,
+            "deleted": false
+        }
+    },
+    {
+        "model": "blogapp.menulist",
+        "pk": 4,
+        "fields": {
+            "module_name": "Blog",
+            "menu_name": "Category Entry",
+            "menu_url": "/category-entry",
+            "menu_icon": "fa fa-blog",
+            "parent_id": 1,
+            "is_main_menu": false,
+            "is_sub_menu": true,
+            "is_sub_child_menu": false,
+            "created_at": "2023-02-19T15:01:14Z",
+            "updated_at": "2023-02-19T15:01:14Z",
+            "deleted_at": "2023-02-19T15:01:04Z",
+            "is_active": true,
+            "deleted": false
+        }
+    }
+]
